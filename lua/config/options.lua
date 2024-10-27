@@ -1,4 +1,3 @@
-vim.cmd('cd ~')
 -- Neovide config
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_cursor_vfx_particle_lifetime = 1.5
