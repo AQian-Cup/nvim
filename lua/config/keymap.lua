@@ -9,35 +9,22 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- MacOS-style Command key mappings
+local modes = { 'n', 'i', 'v' }
+local keys = {
+  -- 字母键
+  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+  'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+  -- 数字键
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+  -- 特殊键
+  '[', ']', ';', "'", ',', '.', '/', '\\', '-', '='
+}
 
--- Scrolling
-map("n", "<D-e>", "<C-e>", { desc = "Scroll down" })
-map("n", "<D-y>", "<C-y>", { desc = "Scroll up" })
-map("n", "<D-d>", "<C-d>", { desc = "Scroll half-page down" })
-map("n", "<D-u>", "<C-u>", { desc = "Scroll half-page up" })
-map("n", "<D-f>", "<C-f>", { desc = "Scroll full-page down" })
-map("n", "<D-b>", "<C-b>", { desc = "Scroll full-page up" })
-
--- Jumping
-map("n", "<D-o>", "<C-o>", { desc = "Jump to older position" })
-map("n", "<D-i>", "<C-i>", { desc = "Jump to newer position" })
-
--- Word movement
-map("n", "<D-Left>", "b", { desc = "Move backward by word" })
-map("n", "<D-Right>", "w", { desc = "Move forward by word" })
-
--- Line jump
-map("n", "<D-6>", "<C-^>", { desc = "Jump to alternate file" })
-
--- Window navigation
-map("n", "<D-w>h", "<C-w>h", { desc = "Move to left window" })
-map("n", "<D-w>j", "<C-w>j", { desc = "Move to bottom window" })
-map("n", "<D-w>k", "<C-w>k", { desc = "Move to top window" })
-map("n", "<D-w>l", "<C-w>l", { desc = "Move to right window" })
-
--- Additional useful MacOS-style shortcuts
-map("n", "<D-/>", ":noh<CR>", { desc = "Clear search highlighting" })
+for _, mode in ipairs(modes) do
+  for _, key in ipairs(keys) do
+    map(mode, '<D-' .. key .. '>', '<C-' .. key .. '>')
+  end
+end
 
 -- Copy and paste (for Neovide)
 if vim.g.neovide == true then
