@@ -16,7 +16,7 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "volar", "lua_ls", "ts_ls", "unocss" },
+        ensure_installed = { "volar", "lua_ls", "ts_ls", "unocss", "rust_analyzer" },
         automatic_installation = true,
       })
       local lspconfig = require("lspconfig")
@@ -118,4 +118,9 @@ return {
       },
     },
   },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  }
 }
