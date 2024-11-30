@@ -72,16 +72,6 @@ return {
     lazy = false,
   },
   {
-    "ray-x/lsp_signature.nvim",
-    event = "InsertEnter",
-    opts = {
-      bind = true,
-      handler_opts = {
-        border = "rounded"
-      }
-    },
-  },
-  {
     "folke/trouble.nvim",
     opts = {},
     cmd = "Trouble",
@@ -121,6 +111,6 @@ return {
   {
     'mrcjkb/rustaceanvim',
     version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
+    lazy = false,   -- This plugin is already lazy
   }
 }
